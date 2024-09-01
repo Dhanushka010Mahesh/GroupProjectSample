@@ -10,7 +10,6 @@
 
     <main id="main-content">
         <!-- Dynamic content will be loaded here -->
-        <h1>Home</h1>
     </main>
 
     <?php include_once("Components/foot.php"); ?>

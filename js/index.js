@@ -13,8 +13,7 @@ function loadContent(directory, pageName) {
     xhr.send();
 }
 
-// Load default content on page load
 document.addEventListener('DOMContentLoaded', function() {
     // Example default content, adjust as needed
-    loadContent('Pages', 'Index'); // Default page
+    loadContent('Pages', 'Home'); // Default page
 });
