@@ -1,4 +1,0 @@
-Tailwind link - https://stackoverflow.com/questions/76303105/how-can-i-use-tailwindcss-without-internet
-
-Tailwind colors - https://tailwindcss.com/docs/customizing-colors
-
