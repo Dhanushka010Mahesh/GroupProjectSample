@@ -4,3 +4,5 @@ Tailwind colors - https://tailwindcss.com/docs/customizing-colors
 
 video - https://youtu.be/YloyMFPJyV4
 
+Tailwind - https://flowbite.com/docs/components/buttons/
+
