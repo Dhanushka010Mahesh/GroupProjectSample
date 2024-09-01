@@ -2,3 +2,5 @@ Tailwind link - https://stackoverflow.com/questions/76303105/how-can-i-use-tailw
 
 Tailwind colors - https://tailwindcss.com/docs/customizing-colors
 
+video - https://youtu.be/YloyMFPJyV4
+

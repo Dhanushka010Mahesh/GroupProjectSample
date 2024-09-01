@@ -23,6 +23,7 @@ class Product{
             ],
             [
                 "id" => "cc",
+                "imgItem"=>
                 "Description" => "Bluuu bluuu bluuuuu",
                 "Name" => "cocanet" ,
                 "Price" => 500
@@ -32,6 +33,9 @@ class Product{
         foreach($people as $value){
             echo "id: " . $value["id"] ."Description : " . $value["Description"] . "Name: " . $value["Name"] . "Price: " . $value["Price"] . "<br>";
         }
+        /*
+            echo "id: {$value['id']} Description: {$value['Description']} Name: {$value['Name']} Price: {$value['Price']}<br>";
+        */
     }
 }
 ?>
