@@ -14,6 +14,13 @@
     <p>this sampale group project</p>
 
     <?php
+    include_once("ObjectClass/Product.php");
+    $r=new Product();
+    echo $r->printArr();
+
+?>
+
+    <?php
 
         include_once("Components/foot.php");
 
