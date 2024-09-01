@@ -3,27 +3,16 @@
 <head>
     <link rel="stylesheet" href="css/Tailwind_css.css">
     <title>Document</title>
+    <script src="js/index.js" defer></script>
 </head>
 <body>
-    <?php
+    <?php include_once("Components/nav.php"); ?>
 
-        include_once("Components/nav.php");
+    <main id="main-content">
+        <!-- Dynamic content will be loaded here -->
+        <h1>Home</h1>
+    </main>
 
-    ?>
-    
-    <p>this sampale group project</p>
-
-    <?php
-    include_once("ObjectClass/Product.php");
-    $r=new Product();
-    echo $r->printArr();
-
-?>
-
-    <?php
-
-        include_once("Components/foot.php");
-
-    ?>
+    <?php include_once("Components/foot.php"); ?>
 </body>
 </html>
