@@ -7,5 +7,6 @@
         <li><a href="#" onclick="loadContent('Pages', 'Cart')">Cart List</a></li>
     </ul>
 
-    <label for="" class="  " >fgf</label>
+    <a href="Pages/lgindex.php" >Profile</a>
+    
 </div>
