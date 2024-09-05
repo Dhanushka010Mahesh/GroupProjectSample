@@ -1,36 +1,89 @@
-<h1 class="px-5 py-6" >Add Product page</h1>
+    <div class="container mx-auto mt-10">
+        <div class="w-full max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-lg">
+            <h1 class="text-2xl font-bold mb-6 text-center">Add Product</h1>
+            <form action="add_product.php" method="POST" enctype="multipart/form-data">
+                <div class="flex">
+                    <!-- Left Side -->
+                    <div class="w-1/2 pr-4">
+                        <!-- Product ID -->
+                        <div class="mb-4">
+                            <label for="id" class="block text-sm font-medium text-gray-700">Product ID</label>
+                            <input type="text" id="id" name="id" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
 
-<form action="">
-    
-    <div class="grid grid-cols-2 gap-10 p-10" >
-            <div>
-                Id <input type="text" name="id" class="border border-black border-[1px]" ><br>
-                Name <input type="text" name="name" class="border border-black border-[1px]"><br>
-                Description <input type="text" name="description" class="border border-black border-[1px]"><br>
-                Price <input type="text" name="price" class="border border-black border-[1px]"><br><br>
-            </div>
-            <div>
-                Sizes <br><input type="checkbox" name="sizes" value="S" >S
-               <input type="checkbox" name="sizes" value="M" >M
-               <input type="checkbox" name="sizes" value="L" >L
-               <input type="checkbox" name="sizes" value="XL" >XL
-               <input type="checkbox" name="sizes" value="XXL" >XXL<br><br>
-           </div>
-            <div>
-                Images <br><input type="file" name="image1" accept="image/*" required><br>
-                <input type="file" name="image2" accept="image/*" required><br>
-                <input type="file" name="image3" accept="image/*" required><br>
-                <input type="file" name="image4" accept="image/*" required><br>
-            </div>
+                        <!-- Name -->
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700">Product Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
 
-            <div>
-                Category <select name="category" id="" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <option value="Men">Men</option>
-                    <option value="Women">Women</option>
-                    <option value="Kids">Kids</option>
-                </select><br><br><br><br><br>
-                <input type="submit" value="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 " name="submit">
-            </div>
+                        <!-- Description -->
+                        <div class="mb-4">
+                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                            <textarea id="description" name="description" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required></textarea>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-4">
+                            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                            <input type="number" step="1" id="price" name="price" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                    </div>
+
+                    <!-- Right Side -->
+                    <div class="w-1/2 pl-4">
+                        <!-- Images -->
+                        <div class="mb-4">
+                            <label for="images" class="block text-sm font-medium text-gray-700">Images</label>
+                            <input type="file" id="images" name="images[]" multiple class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input type="file" id="images" name="images[]" multiple class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input type="file" id="images" name="images[]" multiple class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+
+                        <!-- Sizes -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700">Sizes</label>
+                            <div class="mt-2 space-y-2">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="sizes[]" value="S" class="form-checkbox text-indigo-600">
+                                    <span class="ml-2">S</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="sizes[]" value="M" class="form-checkbox text-indigo-600">
+                                    <span class="ml-2">M</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="sizes[]" value="L" class="form-checkbox text-indigo-600">
+                                    <span class="ml-2">L</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="sizes[]" value="XL" class="form-checkbox text-indigo-600">
+                                    <span class="ml-2">XL</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="sizes[]" value="XXL" class="form-checkbox text-indigo-600">
+                                    <span class="ml-2">XXL</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="mb-6">
+                            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                            <select id="category" name="category" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="Men">Men</option>
+                                <option value="Women">Women</option>
+                                <option value="Kids">Kids</option>
+                                <!-- Add more categories as needed -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600">Add Product</button>
+                </div>
+            </form>
+        </div>
     </div>
-    
-</form>

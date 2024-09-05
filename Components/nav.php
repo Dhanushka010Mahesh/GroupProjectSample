@@ -6,4 +6,6 @@
         <li><a href="#" onclick="loadContent('Pages', 'ListProduct')">Product List</a></li>
         <li><a href="#" onclick="loadContent('Pages', 'Cart')">Cart List</a></li>
     </ul>
+
+    <label for="" class="  " >fgf</label>
 </div>
