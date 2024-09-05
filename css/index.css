@@ -1,16 +1,16 @@
-*{
+/* *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:"poppins",sans-serif;
     
-}
-body{
+} */
+/* body{
     background-color: #C3DDFD;
     background:linear-gradient(to right,#e2e2e2);
-}
+} */
 
-.container{
+/* .container{
     background:#fff;
     width:450px;
     padding:1.5rem;
@@ -119,15 +119,19 @@ input:not(:placeholder-shown) + label {
     font-size:1.6rem;
     border:2px solid rgb(125,125,235);
 }
+
+*/
+/*
 .links {
     display: flex;
-    justify-content: space-between; /* Change to space-between for no space on ends */
-    align-items: center; /* Vertically center items in the flex container */
-    padding: 0 2rem; /* Reduce left and right padding */
-    font-weight: normal; /* Change font weight to normal */
-    font-size: 14px; /* Increase font size for better readability */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; 
+    font-weight: normal; 
+    font-size: 14px; 
     gap: 1rem; 
 }
+
 button{
     color:rgb(125,125,235);
     border:none;
@@ -139,4 +143,22 @@ button{
 button:hover{
     text-decoration: underline;
     color:blue;
+} */
+
+.popupLog{
+    background: rgba(0,0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+.popup-contentLog{
+    height: 650px;
+    width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    top: 5%;
+    left:72% ;
 }

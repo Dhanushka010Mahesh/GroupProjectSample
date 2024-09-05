@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/Tailwind_css.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
     <script src="js/index.js" defer></script>
 </head>

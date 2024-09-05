@@ -32,3 +32,7 @@ signInButton.addEventListener('click',function(){
     signInForm.style.display="block";
     signUpForm.style.display="none";
 })
+
+        document.getElementById("onclickLog").addEventListener("click",function(){
+            document.querySelector(".popupLog").style.display="flex";    
+        })
