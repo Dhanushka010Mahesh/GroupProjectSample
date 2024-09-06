@@ -1,4 +1,3 @@
-
 <div class="flex justify-between bg-gray-900 p-4 text-white">
     
     <div>
@@ -12,14 +11,13 @@
     
     
     <div>
-        <a class="onclickLog"  href="#" >Profile</a>
+        <a id="onclickLog" href="#">Profile</a>
     </div>
-
-    <div class="popupLog" >
-        <div class="popup-contentLog" >
-            <h1>this is login</h1>
+    <div class="popupLog">
+        <div class="popup-contentLog bg-blue-500" >
+            
         </div>
     </div>
-
     
+    <script src="../js/index.js" ></script>
 </div>

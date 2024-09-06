@@ -1,4 +1,3 @@
-
 <div class="text-green-300 bg-gray-700">
     <div class="text-center p-10">
         <p>&copy; Group Project</p>

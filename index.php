@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/Tailwind_css.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
+    <title>Dark Devils</title>
     <script src="js/index.js" defer></script>
 </head>
 <body>
@@ -14,5 +14,7 @@
     </main>
 
     <?php include_once("Components/foot.php"); ?>
+    
+    
 </body>
 </html>
