@@ -15,15 +15,17 @@ function loadContent(directory, pageName,id_Dispaly) {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Example default content, adjust as needed
-    loadContent('Pages', 'Home','main-content'); // Default page
+    loadContent('Pages', 'Home','main-content'); // Default page main page
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     // Example default content, adjust as needed
-    loadContent('Components', 'SignIn','left-content'); // Default page
+    loadContent('Components', 'SignIn','left-content'); // Default page side bar
 });
 /*Dynamic change ..........................................................................*/
 
+
+/*side bar.................................................................................*/
 document.getElementById("onclickLog").addEventListener("click", function() {
     document.querySelector(".popupLog").style.display = "flex";
 })
@@ -34,3 +36,5 @@ window.addEventListener("click", function(event) {
         document.querySelector(".popupLog").style.display = "none";
     }
 });
+
+/*side bar.................................................................................*/
