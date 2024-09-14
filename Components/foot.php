@@ -4,3 +4,14 @@
         <p class="text-sm">Contact - 0766640384</p>
     </div>
 </div>
+<?php
+
+
+    if((!isset($_SESSION['userName'])) && (!isset($_SESSION['password'])) ){
+        echo "you not have account";
+    }else{
+        echo "login";
+        echo $_SESSION['userName'] ." ". $_SESSION['password'];
+    }
+
+?>
