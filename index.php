@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-
+    
     $_SESSION['userName']="DM";
     $_SESSION['password']="1234";
 

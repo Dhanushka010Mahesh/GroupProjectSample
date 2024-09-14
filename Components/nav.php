@@ -1,3 +1,4 @@
+
 <div class="flex justify-between bg-gray-900 p-4 text-white">
 
     <div>
@@ -18,4 +19,5 @@
     </div>
 
     <script src="../js/index.js"></script>
+    
 </div>
