@@ -7,11 +7,14 @@
 <?php
 
 
-    if((!isset($_SESSION['userName'])) && (!isset($_SESSION['password'])) ){
+    if((!isset($_SESSION['userName'])) || (!isset($_SESSION['password'])) ){
         echo "you not have account";
     }else{
         echo "login";
         echo $_SESSION['userName'] ." ". $_SESSION['password'];
     }
 
+    session_unset();
+
+    echo $_SESSION['userName'] ." ". $_SESSION['password'];
 ?>
