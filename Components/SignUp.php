@@ -1,4 +1,5 @@
 
+
 <div class="popup-contentLog bg-gray-900" id="click-panel" >
         <section class="bg-gray-50 dark:bg-gray-900 rounded-xl">
             <div class="flex flex-col items-center px-4 py-8 mx-auto mt-1 md:h-screen lg:py-0">
@@ -8,7 +9,9 @@
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Sign Up to your account
                         </h1>
-                        <form class="space-y-4 md:space-y-6" mothod="POST" action="AccountDataSend.php">
+                        
+                        <form class="space-y-4 md:space-y-6" method="POST" action="Components/AccountDataSend.php" >
+                            
                             <div>
                                 <label for="fname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
                                 <input type="text" name="fname" id="fname" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="first name" required="">

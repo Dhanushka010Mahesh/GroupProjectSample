@@ -1,31 +1,33 @@
 <?php
+if (isset($_POST['submitACC'])) {
+    // Validate inputs
+    if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['email']) || empty($_POST['password'])) {
+        header("Location: ../index.php?signup=empty");
+        exit();
+    }
 
-
-
-if(isset($_POST['submitACC'])){
-    echo "<script>alert('helo')</script>";
     $fName = $_POST['fname'];
     $lName = $_POST['lname'];
     $email = $_POST['email'];
-    $Password = $_POST['password'];
+    $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // Connect to the database
     $connect = mysqli_connect("localhost", "root", "", "cloth_database");
 
-    // Check connection
-    if($connect === false){
+    if ($connect === false) {
         die("Connection Error: " . mysqli_connect_error());
     }
 
-    // Prepare the SQL query with parameterized inputs to prevent SQL injection
+    // Prepare the SQL query
     $stmt = $connect->prepare("INSERT INTO account (Fname, Lname, email, accPassword) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $fName, $lName, $email, $Password);
 
     // Execute the query
-    if($stmt->execute()){
-        echo "<script>alert('Successfully registered')</script>";
+    if ($stmt->execute()) {
+        // Optionally, set session variables or redirect
+        header("Location: ../index.php?signup=success");
     } else {
-        echo "<script>alert('Error occurred: " . $stmt->error . "')</script>";
+        header("Location: ../index.php?signup=error");
     }
 
     // Close the statement and connection
@@ -35,6 +37,3 @@ if(isset($_POST['submitACC'])){
     header("Location: ../index.php?signup=empty");
     exit();
 }
-
-
-?>
