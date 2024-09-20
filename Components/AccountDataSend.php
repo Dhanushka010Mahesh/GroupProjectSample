@@ -12,11 +12,7 @@ if (isset($_POST['submitACC'])) {
     $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // Connect to the database
-    $connect = mysqli_connect("localhost", "root", "", "cloth_database");
-
-    if ($connect === false) {
-        die("Connection Error: " . mysqli_connect_error());
-    }
+    include_once("Connection.php");
 
     // Prepare the SQL query
     $stmt = $connect->prepare("INSERT INTO account (Fname, Lname, email, accPassword) VALUES (?, ?, ?, ?)");
