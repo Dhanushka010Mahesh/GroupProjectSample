@@ -1206,6 +1206,9 @@ class PHPMailer
      * @throws phpmailerException
      * @return boolean false on error - See the ErrorInfo property for details of the error.
      */
+
+
+    
     public function send()
     {
         try {

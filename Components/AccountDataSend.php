@@ -1,11 +1,16 @@
 <?php
+require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/autoload.php';
+
+// Use the PHPMailer classes
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 $accountData = array(
     "firstname" => "",
     "lastname" => "",
     "email" => "",
     "password" => "",
-    "otp" => "",
+    "otp" => "9999",
 );
 
 if (isset($_POST['submitACC'])) {
@@ -14,58 +19,62 @@ if (isset($_POST['submitACC'])) {
         header("Location: ../index.php?signup=empty");
         exit();
     }else{
-
         $accountData["firstname"] = $_POST['fname'];
         $accountData["lastname"] = $_POST['lname'];
-        $mailEmail=$_POST['email'];
-        $accountData["email"] = $mailEmail;
+        $toMail=$_POST['email'];
+        $accountData["email"] = $toMail;
         $accountData["password"] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $newOtp=rand(0000,9999);
         $accountData["otp"] = $newOtp;
 
-        require('Mail/PHPMailerAutoload.php');
-        $mailServer1=new PHPMailer;
+        // $email = $toMail; // Get the user's email from your form
+        // $subject = "Your OTP Code";
+        // $message = "Your OTP code is: $newOtp";
+        // $headers = "From: litefashion256@gmail.com";
 
+        // if (mail($email, $subject, $message, $headers)) {
+        //     echo "OTP sent successfully!";
+        // } else {
+        //     echo "Failed to send OTP.";
+        // }
 
-        $mailServer1->Host='smtp.gmail.com';
-        $mailServer1->Port=587;
-        $mailServer1->SMTPAuth=true;
-        $mailServer1->SMTPSecure='tls';
+            
 
-        $myMailAddress='';
-        $mailServer1->Username=$myMailAddress;
-        $mailServer1->Password='';
+            require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/phpmailer/phpmailer/src/Exception.php';
+            require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+            require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/phpmailer/phpmailer/src/SMTP.php';
 
-        $mailServer1->setFrom($myMailAddress,'dhanushka');
-        $mailServer1->addAddress($mailEmail);
-        
+            $mail = new PHPMailer(true);
+            try {
+                // Server settings
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'litefashion256@gmail.com'; 
+                $mail->Password = 'dark567@DDz'; // Use an app password if 2FA is enabled
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+                $mail->Port = 587;
 
-        $mailServer1->isHTML(true);
-        $mailServer1->Subject="Your Verify code";
-        $mailServer1->Body="<p><b>User Name : </b> $mailEmail </p> <br> <h2>Your Verify Code : $newOtp <br></h2> ";
+                // Recipients
+                $mail->setFrom('litefashion256@gmail.com', 'Your Name');
+                $mail->addAddress($toMail); 
 
-        if($mailServer1->send()){
-            ?>
+                // Content
+                $mail->isHTML(true);
+                $mail->Subject = "Your Verify code";
+                $mail->Body    = "<p><b>User Name : </b> $toMail </p> <br> <h2>Your Verify Code : $newOtp <br></h2> ";
 
-                <script>
-                    alert('Invalid Email Address');
-                </script>
-
-            <?php
-        }else{
-            echo  "<script>alert('OTP code has been sending email $mailEmail');</script>";
-        }
+                $mail->send();
+                echo "OTP sent successfully!";
+} catch (Exception $e) {
+    echo "Failed to send OTP. Mailer Error: {$mail->ErrorInfo}";
+}
 
     }
-
-   
-
-    
 } else {
     header("Location: ../index.php?signup=empty");
     exit();
 }
-
 if (isset($_POST['SubmitOTP'])) {
     
     $otp = $_POST['otpCode'];
