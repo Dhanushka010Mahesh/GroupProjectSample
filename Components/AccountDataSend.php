@@ -1,5 +1,5 @@
 <?php
-require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/autoload.php';
+require '/System/Xampp/htdocs/GroupProjectSample/HideFile/vendor/autoload.php';
 
 // Use the PHPMailer classes
 use PHPMailer\PHPMailer\PHPMailer;
@@ -40,9 +40,9 @@ if (isset($_POST['submitACC'])) {
 
             
 
-            require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/phpmailer/phpmailer/src/Exception.php';
-            require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-            require '/System/Xampp/htdocs/GroupProjectSample/Components/vendor/phpmailer/phpmailer/src/SMTP.php';
+            require '/System/Xampp/htdocs/GroupProjectSample/HideFile/vendor/phpmailer/phpmailer/src/Exception.php';
+            require '/System/Xampp/htdocs/GroupProjectSample/HideFile/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+            require '/System/Xampp/htdocs/GroupProjectSample/HideFile/vendor/phpmailer/phpmailer/src/SMTP.php';
 
             $mail = new PHPMailer(true);
             try {
