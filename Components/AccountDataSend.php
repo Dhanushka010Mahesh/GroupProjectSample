@@ -1,9 +1,6 @@
 <?php
-require '/System/Xampp/htdocs/GroupProjectSample/Components/HideFile/vendor/autoload.php';
 
-// Use the PHPMailer classes
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
 $accountData = array(
     "firstname" => "",
@@ -27,49 +24,40 @@ if (isset($_POST['submitACC'])) {
         $newOtp=rand(0000,9999);
         $accountData["otp"] = $newOtp;
 
-        // $email = $toMail; // Get the user's email from your form
-        // $subject = "Your OTP Code";
-        // $message = "Your OTP code is: $newOtp";
-        // $headers = "From: litefashion256@gmail.com";
+           
+            //$mail->Host = 'smtp.gmail.com';
+            //$mail->Username = 'litefashion256@gmail.com'; 
+            //$mail->Password = 'dark567@DDz'; // Use an app password if 2FA is enabled// passkey
+            //$mail->Port = 587;
 
-        // if (mail($email, $subject, $message, $headers)) {
-        //     echo "OTP sent successfully!";
-        // } else {
-        //     echo "Failed to send OTP.";
-        // }
+                require __DIR__ . '/HideFile/vendor/autoload.php';
 
-            
+                
 
-            require '/System/Xampp/htdocs/GroupProjectSample/Components/HideFile/vendor/phpmailer/phpmailer/src/Exception.php';
-            require '/System/Xampp/htdocs/GroupProjectSample/Components/HideFile/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-            require '/System/Xampp/htdocs/GroupProjectSample/Components/HideFile/vendor/phpmailer/phpmailer/src/SMTP.php';
-
-            $mail = new PHPMailer(true);
-            try {
-                // Server settings
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'litefashion256@gmail.com'; 
-                $mail->Password = 'dark567@DDz'; // Use an app password if 2FA is enabled
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-                $mail->Port = 587;
-
-                // Recipients
-                $mail->setFrom('litefashion256@gmail.com', 'Your Name');
-                $mail->addAddress($toMail); 
-
-                // Content
-                $mail->isHTML(true);
-                $mail->Subject = "Your Verify code";
-                $mail->Body    = "<p><b>User Name : </b> $toMail </p> <br> <h2>Your Verify Code : $newOtp <br></h2> ";
-
-                $mail->send();
-                echo "OTP sent successfully!";
-} catch (Exception $e) {
-    echo "Failed to send OTP. Mailer Error: {$mail->ErrorInfo}";
-}
-
+                try {
+                    
+                    $dotenv = Dotenv::createImmutable(__DIR__.'/HideFile');
+                    $dotenv->load();
+                    
+                    
+                } catch (Exception $e) {
+                    echo "Error loading .env file: " . $e->getMessage();
+                }
+                
+                $apiKey=$_ENV['EMAIL_API_ADDRESS_KEY'];
+                $resend = Resend::client($apiKey);
+                
+                try {
+                        $resend->emails->send([
+                        'from' => 'litefashion@dhanushka.software',
+                        'to' => $toMail,
+                        'subject' => "Your Verify code",
+                        'html' => '<p><b>User Name : </b> '.$toMail.'</p> <br> <h2>Your Verify Code : '.$newOtp.' <br></h2>',
+                        ]);
+                echo "Email sent successfully.";
+                } catch (Exception $e) {
+                    echo "Error: " . $e->getMessage();
+                }
     }
 } else {
     header("Location: ../index.php?signup=empty");

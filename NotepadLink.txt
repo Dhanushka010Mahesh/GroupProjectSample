@@ -12,3 +12,12 @@ https://fontawesome.com/search
 
 https://youtu.be/z9K1XBf01ls
 
+https://resend.com/docs/send-with-php
+
+re_C4C4LrWx_PMnt85e8Zq16CkhkqY7go5sG
+
+https://resend.com/api-keys
+
+email-composer require resend/resend-php
+env file-composer require vlucas/phpdotenv
+
