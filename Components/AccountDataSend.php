@@ -56,7 +56,7 @@ if (isset($_POST['submitACC'])) {
             'html' => '<p><b>User Name : </b> ' . $toMail . '</p> <br> <h2>Your Verify Code : ' . $newOtp . ' <br></h2>',
         ]);
         $_SESSION['showDiv']=false;
-        
+        echo "send mail";
        
     }
 } else {
