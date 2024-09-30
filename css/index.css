@@ -1,0 +1,15 @@
+.popupLog{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+.popup-contentLog{
+    height: 650px;
+    width: 400px;
+    border-radius: 5px;
+    position: relative;
+    top: 5%;
+    left:72% ;
+}
